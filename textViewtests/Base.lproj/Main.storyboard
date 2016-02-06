@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="textViewtests" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKc-Nj-fbw">
+                                <rect key="frame" x="0.0" y="20" width="600" height="534"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-Jx-e2s">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="534"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3fU-1W-Ozi">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Hne-r3-faO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lhe-7v-DLF"/>
+                                                </connections>
+                                            </textView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-j6-Vto">
+                                                <rect key="frame" x="0.0" y="100" width="600" height="434"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="3fU-1W-Ozi" firstAttribute="top" secondItem="XbG-Jx-e2s" secondAttribute="top" id="0fv-aA-VPY"/>
+                                            <constraint firstItem="SMD-j6-Vto" firstAttribute="top" secondItem="3fU-1W-Ozi" secondAttribute="bottom" id="4WV-ZJ-XP8"/>
+                                            <constraint firstItem="3fU-1W-Ozi" firstAttribute="leading" secondItem="XbG-Jx-e2s" secondAttribute="leading" id="8c6-bp-vpt"/>
+                                            <constraint firstAttribute="bottom" secondItem="SMD-j6-Vto" secondAttribute="bottom" id="9a3-Hy-x0O"/>
+                                            <constraint firstItem="SMD-j6-Vto" firstAttribute="leading" secondItem="XbG-Jx-e2s" secondAttribute="leading" id="Ldi-dy-NFT"/>
+                                            <constraint firstAttribute="trailing" secondItem="SMD-j6-Vto" secondAttribute="trailing" id="LzI-RG-d8a"/>
+                                            <constraint firstAttribute="trailing" secondItem="3fU-1W-Ozi" secondAttribute="trailing" id="obU-G8-V9d"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XbG-Jx-e2s" secondAttribute="bottom" id="LRL-2y-NMC"/>
+                                    <constraint firstAttribute="trailing" secondItem="XbG-Jx-e2s" secondAttribute="trailing" id="nzh-P5-BP5"/>
+                                    <constraint firstItem="XbG-Jx-e2s" firstAttribute="leading" secondItem="TKc-Nj-fbw" secondAttribute="leading" id="pDR-HT-EMt"/>
+                                    <constraint firstItem="XbG-Jx-e2s" firstAttribute="top" secondItem="TKc-Nj-fbw" secondAttribute="top" id="vfY-Tw-C9D"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kM-0mg">
+                                <rect key="frame" x="245" y="562" width="110" height="30"/>
+                                <state key="normal" title="attach an image"/>
+                                <connections>
+                                    <action selector="attachImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlY-SJ-jll"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XbG-Jx-e2s" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="534:600" id="8DQ-zZ-4zE"/>
+                            <constraint firstItem="XbG-Jx-e2s" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Nia-GS-XB7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9NH-kM-0mg" secondAttribute="bottom" constant="8" id="RPE-Qa-fI0"/>
+                            <constraint firstItem="9NH-kM-0mg" firstAttribute="top" secondItem="TKc-Nj-fbw" secondAttribute="bottom" constant="8" id="ReK-yT-gIj"/>
+                            <constraint firstAttribute="trailing" secondItem="TKc-Nj-fbw" secondAttribute="trailing" id="STO-Rz-xaW"/>
+                            <constraint firstItem="9NH-kM-0mg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hoZ-c8-c2a"/>
+                            <constraint firstItem="TKc-Nj-fbw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="iAZ-a9-tHc"/>
+                            <constraint firstItem="TKc-Nj-fbw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sYb-oi-G84"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="attachButtonBottom" destination="RPE-Qa-fI0" id="MOB-9Y-l8r"/>
+                        <outlet property="attachHolder" destination="SMD-j6-Vto" id="KkD-Yn-sko"/>
+                        <outlet property="conntainerViewHeight" destination="8DQ-zZ-4zE" id="cS9-7B-OGv"/>
+                        <outlet property="scrollViewChild" destination="XbG-Jx-e2s" id="jbB-S0-MwE"/>
+                        <outlet property="textView" destination="3fU-1W-Ozi" id="ong-ce-H3Z"/>
+                        <outlet property="textViewHeight" destination="Hne-r3-faO" id="Jnc-z6-6SX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="563" y="479"/>
+        </scene>
+    </scenes>
+</document>
