@@ -14,12 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollViewChild: UIView!
     @IBOutlet weak var attachHolder: UIView!
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var conntainerViewHeight: NSLayoutConstraint!
     @IBOutlet weak var attachButtonBottom: NSLayoutConstraint!
     var keyboardSize : CGFloat = 0
     var attachedImageView : UIImageView!
-    var attachHolderBottomConstraintHeight : CGFloat!
-    
     @IBOutlet weak var textView: UITextView!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,8 +37,10 @@ class ViewController: UIViewController {
         placeholderLabel.frame.origin = CGPointMake(5, textView.font!.pointSize / 2)
         placeholderLabel.textColor = UIColor(white: 0, alpha: 0.3)
         placeholderLabel.hidden = !textView.text.isEmpty
-        attachHolderBottomConstraintHeight = attachButtonBottom.constant
+        attachButtonBottom.constant = 0
         attachHolder.userInteractionEnabled = true
+        attachHolder.frame.size.height = 0
+        attachHolder.superview?.frame.size.height = textView.frame.height
         attachHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("textViewBecomeFirstResponder:")))
         
     }
@@ -69,20 +68,13 @@ class ViewController: UIViewController {
         var info = notification.userInfo!
         keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height
         attachButtonBottom.constant = keyboardSize
-        conntainerViewHeight.constant -= keyboardSize
-        
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        //conntainerViewHeight.constant -= keyboardSize
             self.view.layoutIfNeeded()
-            },completion: nil)
-        
-        
     }
     func keyboardWillHide(notification: NSNotification){
-        attachButtonBottom.constant = attachHolderBottomConstraintHeight
-        conntainerViewHeight.constant += keyboardSize
-        UIView.animateWithDuration(0.1, animations: {
-            self.view.layoutIfNeeded()
-            },completion: nil)
+        attachButtonBottom.constant = 0
+        //conntainerViewHeight.constant += keyboardSize
+        self.view.layoutIfNeeded()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,13 +88,9 @@ class ViewController: UIViewController {
             attachedImageView = UIImageView(frame: CGRect(x: 0, y: textView.frame.height , width: textView.frame.width, height: (image?.size.height)! / ratio))
             attachedImageView.image = image
             attachHolder.addSubview(attachedImageView)
-            let currentViewHeight = scrollViewChild.frame.height
-            let shouldBe = attachedImageView.frame.height + textView.frame.height
-            let offset = currentViewHeight - shouldBe
-            conntainerViewHeight.constant += offset
             
         }else{
-            conntainerViewHeight.constant -= attachedImageView.frame.height
+    
             attachedImageView.removeFromSuperview()
             attachedImageView = nil
             
@@ -116,11 +104,10 @@ class ViewController: UIViewController {
 
 extension ViewController : UITextViewDelegate{
     func textViewDidChange(textView: UITextView) {
-        let lastConstant = textViewHeight.constant
         placeholderLabel.hidden = !textView.text.isEmpty
         textViewHeight.constant = textView.contentSize.height
-        let diff = textView.contentSize.height - lastConstant
-        conntainerViewHeight.constant += diff
+        let addedHeight = (attachedImageView == nil) ? 0.0:attachedImageView.frame.height
+        textView.superview?.frame.size.height = textView.contentSize.height + addedHeight
         view.layoutIfNeeded()
     }
 }

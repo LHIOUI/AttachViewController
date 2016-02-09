@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -49,6 +48,7 @@
                                             <constraint firstAttribute="bottom" secondItem="SMD-j6-Vto" secondAttribute="bottom" id="9a3-Hy-x0O"/>
                                             <constraint firstItem="SMD-j6-Vto" firstAttribute="leading" secondItem="XbG-Jx-e2s" secondAttribute="leading" id="Ldi-dy-NFT"/>
                                             <constraint firstAttribute="trailing" secondItem="SMD-j6-Vto" secondAttribute="trailing" id="LzI-RG-d8a"/>
+                                            <constraint firstAttribute="height" constant="534" id="Mto-7N-T3a"/>
                                             <constraint firstAttribute="trailing" secondItem="3fU-1W-Ozi" secondAttribute="trailing" id="obU-G8-V9d"/>
                                         </constraints>
                                     </view>
@@ -70,7 +70,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XbG-Jx-e2s" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="534:600" id="8DQ-zZ-4zE"/>
                             <constraint firstItem="XbG-Jx-e2s" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Nia-GS-XB7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9NH-kM-0mg" secondAttribute="bottom" constant="8" id="RPE-Qa-fI0"/>
                             <constraint firstItem="9NH-kM-0mg" firstAttribute="top" secondItem="TKc-Nj-fbw" secondAttribute="bottom" constant="8" id="ReK-yT-gIj"/>
@@ -83,7 +82,6 @@
                     <connections>
                         <outlet property="attachButtonBottom" destination="RPE-Qa-fI0" id="MOB-9Y-l8r"/>
                         <outlet property="attachHolder" destination="SMD-j6-Vto" id="KkD-Yn-sko"/>
-                        <outlet property="conntainerViewHeight" destination="8DQ-zZ-4zE" id="cS9-7B-OGv"/>
                         <outlet property="scrollViewChild" destination="XbG-Jx-e2s" id="jbB-S0-MwE"/>
                         <outlet property="textView" destination="3fU-1W-Ozi" id="ong-ce-H3Z"/>
                         <outlet property="textViewHeight" destination="Hne-r3-faO" id="Jnc-z6-6SX"/>
